@@ -36,6 +36,6 @@ class InvoiceItemRepositoryTest {
     @Test
     void find_projected_articles_in_time_span() {
         assertThat(repository.findArticlesInTimeRange(invoiceItem.getInvoice().getDate().minusDays(10), invoiceItem.getInvoice().getDate().plusDays(10)).size())
-                .isGreaterThan(0);
+                .isEqualTo(1);
     }
 }

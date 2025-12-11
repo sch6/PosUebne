@@ -34,4 +34,10 @@ class InvoiceRepositoryTest {
     void can_save() {
         assertThat(repository.findInvoicesByInvoiceId_InvoiceId(invoice.getInvoiceId().invoiceId()).isPresent());
     }
+
+    @Test
+    void can_find_projected_sales_by_employee() {
+        assertThat(repository.findSalesByEmployee(invoice.getEmployee().getUserId()
+        ).size()).isEqualTo(1);
+    }
 }

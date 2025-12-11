@@ -17,9 +17,10 @@ public interface InvoiceItemRepository extends JpaRepository<InvoiceItem,Long> {
     Optional<InvoiceItem> findInvoiceItemByInvoiceId_InvoiceItemId(Long id);
 
     @Query("""
-    select new org.example.maturalast.dto.ArticleDto(a) from InvoiceItem it
+    select new org.example.maturalast.dto.ArticleDto(a.number,a.name,i.date,c.firstname,c.lastname) from InvoiceItem it
     join it.invoice i 
     join it.article a
+    join i.customer c
     where i.date > :startAt and i.date < :endAt
 """)
     List<ArticleDto> findArticlesInTimeRange(@Param("startAt") LocalDateTime startAt, @Param("endAt") LocalDateTime endAt);
