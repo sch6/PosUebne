@@ -64,7 +64,7 @@ public class FixtureFactory {
         return Invoice.builder()
                 .number(1)
                 .date(LocalDateTime.now())
-                //.invoiceItems(new ArrayList<>())
+                .invoiceItems(new ArrayList<>())
                 .customer(testCustomer())
                 .employee(testEmployee())
                 .build();

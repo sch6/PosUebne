@@ -14,12 +14,11 @@ public interface InvoiceRepository extends JpaRepository<Invoice,Long> {
     Optional<Invoice> findInvoicesByInvoiceId_InvoiceId(Long id);
 
     @Query("""
-    select new org.example.maturalast.dto.SalesDto(e,c,i) from Invoice i 
+    select new org.example.maturalast.dto.SalesDto(e,c,i,it) from Invoice i 
     join i.employee e   
     join i.customer c
-    join i.invoiceId it 
+    join i.invoiceItems it 
     where e.userId = :id 
-    
 """)
     List<SalesDto> findSalesByEmployee(Long id);
 }

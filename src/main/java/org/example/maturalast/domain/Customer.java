@@ -21,7 +21,7 @@ public class Customer extends User {
 
     @NotNull
     @ElementCollection
-    @JoinTable(name = "addresses", foreignKey = @ForeignKey(name = "address_2_customer"))
+    @JoinTable(name = "addresses", foreignKey = @ForeignKey(name = "FK_address_2_customer"))
     private List<Address> addresses;
     @NotNull
     @Column(columnDefinition = CustomerTypeConverter.COLUMN_DEFINITION)

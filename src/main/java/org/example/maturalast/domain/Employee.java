@@ -16,8 +16,8 @@ import lombok.NoArgsConstructor;
 @Table(name = "employees")
 public class Employee extends User {
 
-    @ManyToOne(cascade = {CascadeType.MERGE,CascadeType.PERSIST})
-    @JoinColumn(name = "company", foreignKey = @ForeignKey(name = "employee_2_company"))
     @NotNull
+    @ManyToOne(cascade = {CascadeType.MERGE,CascadeType.PERSIST})
+    @JoinColumn(name = "company_id", foreignKey = @ForeignKey(name = "employee_2_company"))
     private Company company;
 }

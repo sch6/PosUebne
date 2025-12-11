@@ -1,10 +1,8 @@
 package org.example.maturalast.domain;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
-import lombok.experimental.SuperBuilder;
-import org.antlr.v4.runtime.misc.NotNull;
-
 @Data
 
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
@@ -15,9 +13,9 @@ public abstract class User {
     @EmbeddedId
     protected UserId userId;
 
-    @jakarta.validation.constraints.NotNull
+    @NotNull
     protected String firstname;
-    @jakarta.validation.constraints.NotNull
+    @NotNull
     protected String lastname;
 
     @Embedded
