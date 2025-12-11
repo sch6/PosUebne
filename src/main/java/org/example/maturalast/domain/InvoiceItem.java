@@ -21,7 +21,7 @@ public class InvoiceItem {
     private InvoiceItemId invoiceId;
 
     @NotNull
-    @ManyToOne(cascade = {CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REMOVE})
+    @ManyToOne(cascade = {CascadeType.MERGE,CascadeType.PERSIST})
     @JoinColumn( foreignKey = @ForeignKey(name = "invoiceItem_2_invoice"))
     private Invoice invoice;
 

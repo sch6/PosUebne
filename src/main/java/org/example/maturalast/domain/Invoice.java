@@ -17,7 +17,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "invoices")
-        //uniqueConstraints = {@UniqueConstraint(columnNames = {"A", "B"})}
+        //uniqueConstraints = {@UniqueConstraint(columnNames = {"A", "B"})} todo
 public class Invoice {
     @EmbeddedId
     private InvoiceId invoiceId;
@@ -36,7 +36,7 @@ public class Invoice {
     private Employee employee;
 
     @NotNull
-    @OneToMany(mappedBy = "invoice")
+    @OneToMany(mappedBy = "invoice", cascade = {CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REMOVE})
     private List<InvoiceItem> invoiceItems;
     public record InvoiceId(@GeneratedValue @NotNull Long invoiceId){}
 }
